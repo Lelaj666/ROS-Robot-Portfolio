@@ -1,267 +1,204 @@
-# Robotics Portfolio
+# ROS Robot Portfolio
 
 <div align="center">
 
-## 鲁江龙 | Robotics & AI Engineer
+**鲁江龙 | Robotics & AI Engineer**
 
-ROS开发 | 导航规划 | 多传感器融合 | 机械臂控制 | 边缘AI部署
+ROS开发 | 导航规划 | 多传感器融合 | 机械臂控制 | 边缘AI部署 | 具身智能
 
 </div>
 
 ---
 
-# 关于我
+## 关于本仓库
 
-人工智能专业本科在读，专注于机器人软件开发、导航定位、多传感器融合及具身智能方向。
+人工智能专业本科在读，专注于移动机器人、导航定位、多传感器融合及具身智能方向。
 
-参与多项机器人竞赛与工程实践项目，具备从算法验证、系统集成到部署调试的完整开发经验。
-
-目前重点学习方向：
-
-- ROS1 / ROS2
-- Navigation & Path Planning
-- Multi-Sensor Fusion
-- MoveIt Motion Planning
-- Edge AI Deployment
-- Embodied AI
+本仓库记录了我在 ROS 机器人开发、嵌入式系统、边缘 AI 部署等方向的完整项目实践，涵盖从算法验证、系统集成到部署调试的全流程。
 
 ---
 
-# 技术栈
+## 技术栈
 
-### Robot Software
+<details open>
+<summary><b>机器人框架</b></summary>
 
-- ROS1
-- ROS2（学习中）
-- TF
-- RViz
-- Gazebo
-- MoveIt
+ROS1 / ROS2 · TF / TF2 · Navigation（MoveBase / Nav2）· RViz · Gazebo · MoveIt
 
-### Navigation & Localization
+</details>
 
-- GMapping
-- AMCL
-- EKF
-- robot_localization
-- A* Path Planning（基础）
-- DWA（基础）
+<details open>
+<summary><b>导航与规划</b></summary>
 
-### Computer Vision
+GMapping · AMCL · Costmap2D · A* 路径规划 · DWA 局部规划器 · Behavior Tree（基础）
 
-- OpenCV
-- YOLOv5
-- YOLOv8
-- ARTag
+</details>
 
-### Embedded Systems
+<details open>
+<summary><b>状态估计与控制</b></summary>
 
-- STM32
-- RT-Thread
-- FreeRTOS
-- UART
-- MQTT
-- ZigBee
+EKF 多传感器融合（robot_localization）· 差速运动学建模 · PID 控制与参数调优
 
-### AI Deployment
+</details>
 
-- RK3588
-- RKNN
-- RKNPU
-- ONNX
-- TensorRT（基础）
+<details open>
+<summary><b>视觉感知</b></summary>
 
-### Programming
+YOLOv5 / YOLOv8 · OpenCV · ARTag 位姿估计
 
-- C++
-- Python
-- C
-- Linux
-- Git
-- CMake
+</details>
 
-### AI Tools
+<details open>
+<summary><b>嵌入式与硬件</b></summary>
 
-- Claude
-- OpenClaw
-- Codex
+STM32（F103 / F401）· RT-Thread · FreeRTOS · LVGL · SPI / I2C · IMU / 编码器
 
----
+</details>
 
-# 项目展示
+<details open>
+<summary><b>通信</b></summary>
+
+UART · CAN · TCP/IP · UDP · MQTT · ZigBee
+
+</details>
+
+<details open>
+<summary><b>AI 部署</b></summary>
+
+RK3588 / RKNN / RKNPU · ONNX · TensorRT（基础）· 嵌入式端侧 CNN 推理
+
+</details>
+
+<details open>
+<summary><b>开发语言与工具</b></summary>
+
+C++ · Python · C · Linux（Ubuntu）· CMake · Git
+
+</details>
 
 ---
 
-## 1. 基于ROS的巡航与自动射击机器人
+## 项目
 
-### 项目简介
+### 1. 自主导航与目标识别机器人
 
-面向机器人竞赛场景，实现：
+> 基于 ROS 的竞赛机器人，实现 SLAM 建图、自主导航、目标识别与打击全流程
 
-- SLAM建图
-- 自主导航
-- 目标识别
-- 自动打击
+**技术栈：** `ROS1` `GMapping` `AMCL` `MoveBase` `Navigation` `TF` `YOLOv8` `OpenCV` `PID`
 
-构建完整闭环机器人系统。
-
-### 技术栈
-
-```text
-ROS1
-GMapping
-AMCL
-Navigation
-YOLOv8
-OpenCV
-TF
-PID
-```
-
-### 主要工作
-
-- GMapping地图构建
-- AMCL定位优化
-- Navigation导航部署
-- YOLO目标检测
-- ROS多节点架构设计
-- PID控制优化
-
-### 项目成果
-
-- 国家级二等奖
-- 国家级三等奖
+- 基于 GMapping 构建二维栅格地图，AMCL 实现自主定位
+- 基于 MoveBase 框架完成全局路径规划与 DWA 局部避障
+- 阅读 Navigation 框架源码，理解 Costmap 与 DWA 工作机制，针对性调优参数
+- 结合 YOLOv8 与 ARTag 完成目标检测与位姿解算，通过 TF 完成坐标转换与目标跟踪
+- **成果：** 真实场景稳定运行，获全球校园人工智能算法精英大赛**国家级二等奖**、机器人及人工智能大赛**国家级三等奖**
 
 ---
 
-## 2. 基于EKF的ROS多传感器融合定位系统
+### 2. 移动机械臂协同抓取系统
 
-### 项目简介
+> 移动平台自主导航 + 机械臂运动规划，实现协同抓取闭环
 
-融合编码器里程计与IMU数据，实现机器人高精度定位。
+**技术栈：** `ROS1` `MoveIt` `Gazebo` `RViz` `TF` `OpenCV` `ARTag`
 
-### 技术栈
-
-```text
-ROS1
-EKF
-robot_localization
-STM32
-IMU
-RViz
-```
-
-### 主要工作
-
-- 编码器数据处理
-- IMU数据融合
-- EKF参数调优
-- TF树搭建
-- 差速运动学建模
-
-### 项目成果
-
-- 显著降低定位漂移
-- 提升导航稳定性
+- 基于 Navigation 完成底盘自主导航
+- 利用 TF 建立 map、odom、base_link 与机械臂坐标系关系，实现目标空间映射
+- 结合 OpenCV 与 ARTag 获取目标位姿，基于 MoveIt 实现逆运动学求解与轨迹规划
+- 在 Gazebo 中完成仿真验证，实现导航 + 抓取全流程闭环
 
 ---
 
-## 3. 基于ROS与MoveIt的移动机械臂协同抓取系统
+### 3. EKF 多传感器融合定位系统
 
-### 项目简介
+> 融合编码器里程计与 IMU 数据，提升轮式机器人定位精度
 
-实现移动机器人与机械臂协同抓取任务。
+**技术栈：** `ROS1` `robot_localization` `EKF` `STM32` `IMU` `TF` `RViz` `Python`
 
-### 技术栈
-
-```text
-ROS1
-MoveIt
-Gazebo
-RViz
-TF
-ARTag
-OpenCV
-```
-
-### 主要工作
-
-- MoveIt运动规划
-- TF坐标转换
-- ARTag目标定位
-- Gazebo仿真验证
-- 机械臂轨迹规划
-
-### 项目成果
-
-- 完成导航+抓取全流程验证
+- 基于 robot_localization 构建 EKF 融合模型，融合 STM32 编码器里程计与 MPU6050 IMU 数据
+- 完成 map → odom → base_link TF 树构建
+- 调整过程噪声与观测噪声协方差矩阵优化滤波效果
+- **成果：** 显著降低定位漂移，提高导航稳定性与轨迹跟踪精度
 
 ---
 
-## 4. YOLO垃圾检测系统（RK3588部署）
+### 4. 智慧农业环境监测系统
 
-### 项目简介
+> 基于边缘 AI 与多传感协同的温室环境监测与自动调控
 
-实现YOLO模型在边缘端实时部署。
+**技术栈：** `STM32` `RT-Thread` `OpenHarmony` `MQTT` `ZigBee` `Python`
 
-### 技术栈
-
-```text
-YOLOv8
-RK3588
-RKNN
-RKNPU
-Linux
-```
-
-### 主要工作
-
-- 数据集训练
-- 模型量化
-- RKNN转换
-- NPU部署优化
-
-### 项目成果
-
-- 实现边缘实时推理
-- 满足低功耗部署需求
+- 基于 STM32 与 RT-Thread 实现温湿度、光照及土壤湿度数据采集
+- 利用 ZigBee 与 MQTT 建立边缘节点通信链路
+- 引入模糊控制算法与积分灌溉策略实现自动控制
+- **成果：** 获计算机设计大赛**省级二等奖**、服创赛**省级三等奖**
 
 ---
 
-# 竞赛获奖
+### 5. YOLO 垃圾检测系统（RK3588 边缘部署）
 
-- 第七届全球校园人工智能算法精英大赛全国总决赛 国家级二等奖
-- 第二十七届中国机器人及人工智能大赛全国总决赛 国家级三等奖
-- 中国大学生计算机设计大赛 省级二等奖
-- 中国大学生服务外包创新创业大赛 省级三等奖
-- 睿抗机器人开发者大赛 省级三等奖
+> 模型轻量化 + 边缘端实时推理
 
----
+**技术栈：** `YOLOv8` `RK3588` `RKNN` `RKNPU` `Linux`
 
-# 未来方向
-
-目前持续学习：
-
-- ROS2 Nav2
-- Behavior Tree
-- MPC控制
-- 强化学习路径规划
-- VLA（Vision-Language-Action）
-- 世界模型（World Model）
-- 具身智能
+- 基于 YOLOv8 完成垃圾分类模型训练
+- 利用 RKNN Toolkit 进行模型转换与 INT8 量化
+- 部署至 RK3588 平台，调用 RKNPU 硬件加速实现边缘实时推理
 
 ---
 
-# 联系方式
+### 6. 边缘视觉 AI 手势博弈系统
 
-Email：
+> 在 STM32 上纯 C 实现 CNN 推理，完成端侧手势识别与博弈交互
 
-```text
-lelaj666@gmail.com
-```
+**技术栈：** `STM32F103` `RT-Thread` `OV2640` `CNN` `FSM` `C`
 
-GitHub：
+- 基于 STM32F103 与 OV2640 实现图像采集
+- 对 PyTorch 训练模型进行轻量化重构，纯 C 实现 CNN 推理算子并优化内存复用
+- 利用 FSM 状态机实现完整交互流程
 
-```text
-https://github.com/lelaj666
-```
+---
+
+### 7. 智能手表 GUI 开发
+
+> 基于 FreeRTOS 多任务架构 + LVGL 图形界面 + 触摸交互
+
+**技术栈：** `STM32F401` `FreeRTOS` `LVGL` `GC9A01 LCD` `CST816D` `RTC` `SPI` `I2C` `CubeMX`
+
+- 基于 CubeMX 配置 FreeRTOS 多任务框架，设计 HomeTask、TaskLvgl 等独立任务
+- 利用软件定时器与消息队列实现 RTC 时间数据的周期采集与任务间通信
+- 采用互斥信号量保护 LVGL 屏幕资源
+- 通过 SPI 驱动 GC9A01 LCD，I2C 完成 CST816D 触摸数据采集与手势识别
+- **成果：** 支持实时时钟显示、触摸手势滑动切换页面、按钮计数等功能，运行稳定流畅
+
+---
+
+### 8. VLA 机械臂模仿学习系统
+
+> 基于 Vision-Language-Action 模型的端到端模仿学习，探索具身智能在低成本硬件上的可行性
+
+**技术栈：** `PyTorch` `HuggingFace LeRobot` `ACT` `SmolVLA (0.45B)` `Diffusion Policy` `RealSense D435i` `SO-100` `MuJoCo` `Accelerate` `wandb`
+
+- 搭建 RealSense D435i + SO-100 Leader-Follower 遥操作系统采集视觉-动作示教数据
+- 基于 LeRobot 框架集成 ACT、SmolVLA、Diffusion Policy 等前沿策略
+- 利用 Accelerate 实现分布式混合精度训练与 wandb 监控
+- 完成 MuJoCo 仿真评估后部署至实机闭环验证
+- **成果：** 构建 **数据采集 → 策略训练 → 仿真评估 → 实机部署** 完整具身智能开发流程，在低成本硬件上验证多种前沿模仿学习算法有效性
+
+---
+
+## 竞赛获奖
+
+| 奖项 | 级别 | 年份 |
+|:---|:---|:---|
+| 全球校园人工智能算法精英大赛全国总决赛（视觉巡航赛） | 国家级二等奖（A类） | 2025 |
+| 中国机器人及人工智能大赛全国总决赛（目标射击赛项） | 国家级三等奖（A类） | 2025 |
+| 中国大学生计算机设计大赛（人工智能应用实践赛） | 省级二等奖（A类） | 2026 |
+| 中国大学生服务外包创新创业大赛（A03 智慧农业赛题） | 省级三等奖（A类） | 2026 |
+| 睿抗机器人开发者大赛（魔力元宝服务组） | 省级三等奖（A类） | 2025 |
+
+---
+
+## 联系方式
+
+Email：lelaj666@gmail.com
+
+GitHub：[github.com/Lelaj666](https://github.com/lelaj666)
