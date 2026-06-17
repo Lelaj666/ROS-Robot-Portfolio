@@ -309,7 +309,7 @@ void gesture_handler(lv_event_t * e)
 
 1. **克隆仓库**
    ```bash
-   git clone https://github.com/jiuky1/smart-watch-stm32.git
+   git clone https://github.com/lelaj666/ROS-Robot-Portfolio.git
    cd smart-watch-stm32
    ```
 
@@ -405,7 +405,7 @@ HAL_UART_Transmit(&huart2, (uint8_t*)debug_buf, strlen(debug_buf), HAL_MAX_DELAY
 
 ## 👨‍💻 作者
 
-**鲁江龙** - [GitHub](https://github.com/jiuky1)
+**鲁江龙** - [GitHub](https://github.com/lelaj666)
 
 ---
 
@@ -420,4 +420,4 @@ HAL_UART_Transmit(&huart2, (uint8_t*)debug_buf, strlen(debug_buf), HAL_MAX_DELAY
 ## 📞 联系方式
 
 - Email: lelaj666@gmail.com
-- GitHub: [lelaj666](https://github.com/jiuky1)
+- GitHub: [lelaj666](https://github.com/lelaj666)
